@@ -6,17 +6,12 @@ pipeline {
                 bat 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Test') {
-            steps {
-                bat 'mvn test'
-                junit 'target/failsafe-reports/*.xml'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
-        }
+stage('Test') {
+    steps {
+        bat 'mvn test'
+        junit 'target/surefire-reports/*.xml'
+    }
+}
         stage('Deliver') {
             steps {
                 bat './jenkins/scripts/deliver.sh'
