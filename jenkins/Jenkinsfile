@@ -6,13 +6,11 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stages { 
             stage('Checkout') { 
                 steps { 
                     git branch: 'samplemanvenapp', url: 'https://github.com/BKalyankumar7/maven-app.git' 
                 } 
             } 
-        }
         stage('Test') {
             steps {
                 sh 'mvn test'
