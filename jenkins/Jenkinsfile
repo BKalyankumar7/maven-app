@@ -11,10 +11,5 @@ stage('Test') {
         bat 'mvn test'
     }
 }
-        stage('COmplete') {
-    steps {
-        echo 'Completed the build and test the job'
-    }
-}
     }
 }
